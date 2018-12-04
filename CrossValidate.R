@@ -47,7 +47,7 @@ levels(data$handcap) <- c('No','Yes')
 
 str(data)
 
-ind <- createDataPartition(data$no_show, p=1/100, list = FALSE)
+ind <- createDataPartition(data$no_show, p=1/5, list = FALSE)
 trainDF <- data[ind,]
 testDF <- data[-ind,]
 table(trainDF$no_show)
@@ -63,7 +63,7 @@ table(undertestDF$no_show)
 
 
 ControlParametrs <- trainControl(method = 'cv', 
-                                 number = 5, 
+                                 number = 10, 
                                  savePredictions = TRUE,
                                  classProbs=TRUE)
 
